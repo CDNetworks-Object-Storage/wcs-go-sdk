@@ -1,31 +1,24 @@
-# Go SDK 使用指南
+# User Guide for Go SDK
 
-## 功能说明
+## Instructions
 
-wcs-go-sdk 是较为原始的封装，lib 部分没有引入 JSON 库，如果操作返回的结果是 JSON 字符串，您需要自己选择一个 JSON 库，比如 golang 自带的 json，并按照文档去正确解读。
-
-## 版本说明
-
-### 1.0.0.3
+wcs-go-sdk is a basic encapsulation with no JSON libs in it. If the returned result is a JSON sring, you have to read the result with an extra JSON lib.
 
 
-## 安装说明
+## Install
 
-1. 使用go module安装：`go get -u github.com/Wangsu-Cloud-Storage/wcs-go-sdk/src/lib`
-2. 使用源码安装：`复制 /src/lib 到您的代码目录下`
+1. Install with go module: `go get -u github.com/Wangsu-Cloud-Storage/wcs-go-sdk/src/lib`
+2. Install with source code: copy `/src/lib` to your project.
 
+## Initialization
 
-## 初始化
+AK/SK, Domain name and Upload name are required to accesss object storage. You can get them as following steps:
 
-在使用 SDK 之前，您需要获得一对有效的 AccessKey 和 SecretKey 签名授权。
+- Apply for CDNetworks cloud storage service.
+- Log in CDNetworks SI portal, get the AccessKey and SecretKey in Security Console - AK/SK Management
+- Log in CDNetworks SI portal, get Upload Domain (puturl) and Manage Domain (mgrurl) in Bucket Overview -> Bucket Settings
 
-可以通过如下方法获得：
-
-1. 开通网宿云存储账号
-2. 登录网宿 SI 平台，在安全管理-秘钥管理查看 AccessKey 和 SecretKey
-3. 登录网宿 SI 平台，在安全管理-域名管理查看上传域名（UploadHost）和管理域名(ManageHost)。
-
- 获取上面配置之后，调用如下代码进行初始化：
+ Initialize as follows after you get AK/SK, Domain name and Upload name:
 
  ```
  auth := utility.NewAuth("<AccessKey>", "<SecretKey>")
@@ -36,4 +29,4 @@ wcs-go-sdk 是较为原始的封装，lib 部分没有引入 JSON 库，如果�
 
  ```
 
-4. 更多范例请参考 src/examples
+4. See more examples at `src/examples`.
